@@ -1,0 +1,11 @@
+C:\Users\abell\workspace\interviewPractice\bin\Debug\netcoreapp2.2\interviewPractice.deps.json
+C:\Users\abell\workspace\interviewPractice\bin\Debug\netcoreapp2.2\interviewPractice.runtimeconfig.json
+C:\Users\abell\workspace\interviewPractice\bin\Debug\netcoreapp2.2\interviewPractice.runtimeconfig.dev.json
+c:\Users\abell\workspace\interviewPractice\bin\Debug\netcoreapp2.2\interviewPractice.dll
+c:\Users\abell\workspace\interviewPractice\bin\Debug\netcoreapp2.2\interviewPractice.pdb
+c:\Users\abell\workspace\interviewPractice\obj\Debug\netcoreapp2.2\interviewPractice.csprojAssemblyReference.cache
+c:\Users\abell\workspace\interviewPractice\obj\Debug\netcoreapp2.2\interviewPractice.csproj.CoreCompileInputs.cache
+c:\Users\abell\workspace\interviewPractice\obj\Debug\netcoreapp2.2\interviewPractice.AssemblyInfoInputs.cache
+c:\Users\abell\workspace\interviewPractice\obj\Debug\netcoreapp2.2\interviewPractice.AssemblyInfo.cs
+c:\Users\abell\workspace\interviewPractice\obj\Debug\netcoreapp2.2\interviewPractice.dll
+c:\Users\abell\workspace\interviewPractice\obj\Debug\netcoreapp2.2\interviewPractice.pdb
