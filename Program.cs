@@ -6,9 +6,8 @@ namespace interviewPractice
     {
         static void Main(string[] args)
         {
-          var method = new StringManipulation();
-          method.makeAnagram("fcrxzwscanmligyxyvym", "jxwtrhvujlmrpdoqbisbwhmgpmeoke");
-          method.isValid("aabbcd");
+          
+         
         }
     }
 }
