@@ -135,7 +135,7 @@ namespace interviewPractice
 
         public linkedList ReverseList(linkedList head)
         {
-            
+
             if (head == null) return null;
 
             var currNode = head;
@@ -152,59 +152,90 @@ namespace interviewPractice
             return head;
         }
 
-          public bool IsPalindrome(linkedList head) {
-        var slow = head;
-        var fast = head;
-        var check = head;
-        
-        
-        
-        //null head is read as a palindrome
-        //one item list are palindromes
-        if(head == null || head.next == null) return true;
-        
-            
-        // find the middle first: Employ the fast/slow method
-        // where fast moves two nodes and slow moves one node
-        // when fast == null or fast.next == null, we have hit the last node
-        // and our slow node is on the middle node. 
-        // Note: If the # of nodes is odd, slow will be sqaurely in the middle 
-        //       If the # of nodes are even it will be at the middle node closer to the end
-        while(fast!=null && fast.next!=null)
+        public bool IsPalindrome(linkedList head)
         {
-            slow = slow.next;
-            fast = fast.next.next;
-            
+            var slow = head;
+            var fast = head;
+            var check = head;
+
+
+
+            //null head is read as a palindrome
+            //one item list are palindromes
+            if (head == null || head.next == null) return true;
+
+
+            // find the middle first: Employ the fast/slow method
+            // where fast moves two nodes and slow moves one node
+            // when fast == null or fast.next == null, we have hit the last node
+            // and our slow node is on the middle node. 
+            // Note: If the # of nodes is odd, slow will be sqaurely in the middle 
+            //       If the # of nodes are even it will be at the middle node closer to the end
+            while (fast != null && fast.next != null)
+            {
+                slow = slow.next;
+                fast = fast.next.next;
+
+            }
+
+            //reverse the node from middle to end 
+            //next heck if it was an even list or odd list 
+            if (fast != null) //this is the odd condition
+            {
+                slow = slow.next;
+            }
+
+            // reversing  function need a few more refernce objects
+            var mid = slow;
+            var track = slow.next;
+            while (slow.next != null)
+            {
+                slow.next = slow.next.next;
+                track.next = mid;
+                mid = track;
+                track = slow.next;
+
+            }
+
+            // checking values for same data
+            while (mid != null)
+            {
+                if (mid.data != check.data) return false;
+                mid = mid.next;
+                check = check.next;
+            }
+
+            return true;
+
         }
-        
-        //reverse the node from middle to end 
-        //next heck if it was an even list or odd list 
-        if(fast != null) //this is the odd condition
+
+        public linkedList RemoveElements(linkedList head, int val)
         {
-            slow=slow.next;    
+            var curr = head;
+
+            // this is for the edge case when the first value is the value to be deleted
+            // this also handles the edge case for when the whol list need to be deleted
+            while (head != null && curr.data == val)
+            {
+                head = curr.next;
+                curr = head;
+            }
+
+            //check for null values 
+            if (head == null) return head;
+
+            //if the next value is equal to the vlaue to be deleted then 
+            // skip it, if not then just move the currnode down the line
+            while (curr.next != null)
+            {
+                if (curr.next.data == val)
+                {
+                    curr.next = curr.next.next;
+                }
+                else { curr = curr.next; }
+            }
+
+            return head;
+
         }
-        
-        // reversing  function need a few more refernce objects
-        var mid = slow;
-        var track = slow.next;
-        while(slow.next !=null)
-        {
-            slow.next=slow.next.next;
-            track.next = mid;
-            mid = track;
-            track=slow.next;
-           
-        }
-        
-        // checking values for same data
-        while(mid != null)
-        {
-            if(mid.data != check.data) return false;
-            mid=mid.next;
-            check = check.next;
-        }
-         
-        return true;
-        
-    }
     }
