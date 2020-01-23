@@ -180,7 +180,6 @@ namespace interviewPractice
             return levels;
         }
 
-
         public bool IsSymmetric(TreeNode root)
         {   //============================Strategy ======================================//
             //THE key to solving this one is to know that youy need another function 
@@ -190,7 +189,7 @@ namespace interviewPractice
             // Also a tree with no left and right is symetrical so we dont even look at that
 
             if (root == null) return true;
-            
+
             // pass in the left and right sub trees to the custom function
             // the funtion will be recursive so return it;
 
@@ -213,19 +212,52 @@ namespace interviewPractice
             return isMirrored(left.left, right.right) && isMirrored(left.right, right.left);
         }
 
-        public bool HasPathSum(TreeNode root, int sum) {
-        
-        if(root == null)
+        public bool HasPathSum(TreeNode root, int sum)
         {
-            return false;
+
+            if (root == null)
+            {
+                return false;
+            }
+            // this condition is for if we have hit a leaf node  with no children and is the sum;
+            else if (root.left == null && root.right == null && (sum - root.val) == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return HasPathSum(root.left, sum - root.val) || HasPathSum(root.right, sum - root.val);
+            }
+
         }
-        // this condition is for if we have hit a leaf node  with no children and is the sum;
-        else if(root.left ==null && root.right == null && (sum-root.val)==0){
-            return true;
-        }else{
-            return HasPathSum(root.left, sum-root.val) || HasPathSum(root.right, sum-root.val);
+
+        public TreeNode SortedArrayToBST(int[] nums)
+        {
+            if (nums == null || nums.Length == 0)
+            {
+                return null;
+            }
+
+            return ConstructBST(nums, 0, nums.Length - 1);
+
         }
-      
-    }
+        // on this recursive problem we want to:
+        // 1. Find the middle
+        // 2. make that middle value the current, "root", node
+        // 3. recurse to find left node
+        // 4. recurse to find right node 
+        // 5. return the current
+        private TreeNode ConstructBST(int[] arr, int startPosition, int endPosition)
+        {
+            if (startPosition > endPosition) { return null; }
+
+            int middle = startPosition + (endPosition - startPosition) / 2;
+            var current = new TreeNode(arr[middle]);
+            current.left = ConstructBST(arr, startPosition, middle - 1);
+            current.right = ConstructBST(arr, middle + 1, endPosition);
+            return current;
+
+
+        }
     }
 }
